@@ -4,7 +4,7 @@ stages:
 
 info:
   stage: init
-  image: docker:dind
+  #image: docker:dind
   script:
     - pwd
     - env
@@ -15,6 +15,6 @@ info:
 
 build:
   stage: build
-  image: docker:dind
+  #image: docker:dind
   script:
     - docker build -t ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} .

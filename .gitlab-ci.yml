@@ -4,8 +4,6 @@ services:
 
 stages:
 - build
-- test
-- release
 
 #before_script:
 #  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.example.com:5555

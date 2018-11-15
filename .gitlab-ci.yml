@@ -1,20 +1,16 @@
-stages:
-  - init
-  - build
+image: docker:latest
+services:
+- docker:dind
 
-info:
-  stage: init
-  #image: docker:dind
-  script:
-    - pwd
-    - env
-    - cat /etc/*release
-    - ls -la
-    - whoami
-    - which docker
+stages:
+- build
+- test
+- release
+
+#before_script:
+#  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN gitlab.example.com:5555
 
 build:
   stage: build
-  #image: docker:dind
   script:
     - docker build -t ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} .

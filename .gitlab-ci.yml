@@ -1,0 +1,20 @@
+stages:
+  - init
+  - build
+
+info:
+  stage: init
+  image: docker:1.12
+  script:
+    - pwd
+    - env
+    - cat /etc/*release
+    - ls -la
+    - whoami
+    - which docker
+
+build:
+  stage: build
+  image: docker:1.12
+  script:
+    - docker build -t ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} .

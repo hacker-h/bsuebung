@@ -14,8 +14,8 @@ before_script:
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
 
 build:
-  only:
-    - tags
+  #only:
+  #  - tags
   tags:
     - dind
   stage: build

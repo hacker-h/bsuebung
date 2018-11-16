@@ -7,6 +7,10 @@ stages:
 - run
 
 before_script:
+    - cat /etc/*release
+    - pwd
+    - env
+    - export
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
 
 build:
@@ -28,4 +32,4 @@ run:
     - docker
   stage: run
   script:
-    - docker run ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+    - #docker run :$(echo ${CI_BUILD_REF_NAME} | sed s,/,-,g)

@@ -1,4 +1,3 @@
-#Docker version 18.06.1-ce, build 67f9a391
 From ubuntu:16.04
 
 RUN apt-get update &&\

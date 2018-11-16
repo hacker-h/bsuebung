@@ -4,6 +4,7 @@ services:
 
 stages:
 - build
+- run
 
 before_script:
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
@@ -19,3 +20,10 @@ build:
     - docker push ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
     - docker rmi ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
     - docker rmi ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID}
+
+  run:
+    tags:
+      - docker
+    stage: run
+    script:
+      - docker run --rm --name container-${CI_BUILD_ID} ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}

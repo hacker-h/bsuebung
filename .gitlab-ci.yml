@@ -11,4 +11,9 @@ stages:
 build:
   stage: build
   script:
+    - pwd
+    - ls -la
+    - cat /etc/*release
+    - export
+    - env
     - docker build -t ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} .

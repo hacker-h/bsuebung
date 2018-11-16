@@ -27,9 +27,9 @@ build:
     - docker rmi ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
     - docker rmi ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID}
 
-run:
+unit-tests:
   tags:
     - docker
   stage: run
   script:
-    - docker run ${CI_REGISTRY_IMAGE}:${CI_BUILD_REF_NAME}
+    - docker run --rm ${CI_REGISTRY_IMAGE}:${CI_BUILD_REF_NAME}

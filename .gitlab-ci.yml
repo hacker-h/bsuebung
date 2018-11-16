@@ -26,4 +26,4 @@ run:
     - docker
   stage: run
   script:
-    - docker run --rm --name container-${CI_BUILD_ID} ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+    - docker run ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}

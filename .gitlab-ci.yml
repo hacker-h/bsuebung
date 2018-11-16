@@ -32,4 +32,4 @@ run:
     - docker
   stage: run
   script:
-    - docker run registry.gitlab.com/hacker-h/bsuebung:master
+    - docker run ${CI_REGISTRY_IMAGE}:${CI_BUILD_REF_NAME}

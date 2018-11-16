@@ -11,9 +11,19 @@ stages:
 build:
   stage: build
   script:
+<<<<<<< Updated upstream
     - pwd
     - ls -la
     - cat /etc/*release
     - export
     - env
     - docker build -t ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} .
+=======
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker build -t ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} .
+    - DOCKER_TAG="$(echo ${CI_BUILD_REF_NAME} | sed s,/,-,g)"
+    - docker tag ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID} ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+    - docker push ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+    - docker rmi ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}
+    - docker rmi ${CI_REGISTRY_IMAGE}:build-${CI_BUILD_ID}
+>>>>>>> Stashed changes

@@ -28,20 +28,18 @@ fi
 forceFlag=0
 verboseFlag=0
 volume="-v obj:/MyFS/obj "
-suppressOutput="|& /dev/null"
+suppressOutput="2>&1 | /dev/null"
 quiet="-q"
 
-#|& is syntactic sugar for 2>&1 |
-
 #check if docker is installed
-which docker |& /dev/null
+which docker 2>&1 | /dev/null
 if [ ${?} -ne 0 ]
 then
     echo "Docker is not installed, aborting.." >&2
     exit
 fi
 #check if docker is ready to use
-docker ps |& /dev/null
+docker ps 2>&1 | /dev/null
 if [ ${?} -ne 0 ]
 then
     echo "Docker is not running, aborting.." >&2

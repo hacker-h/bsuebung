@@ -38,19 +38,19 @@ force:
     - dind
   stage: run
   script:
-    - bash executeTests.sh -f
+    - ./executeTests.sh -f
     
 verbose:
   tags:
     - dind
   stage: run
   script:
-    - bash executeTests.sh -v
+    - ./executeTests.sh -v
 
 forceVerbose:
   tags:
     - dind
   stage: run
   script:
-    - bash executeTests.sh -fv
+    - ./executeTests.sh -fv
 

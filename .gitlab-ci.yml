@@ -11,6 +11,7 @@ before_script:
     - pwd
     - env
     - export
+    - chmod +x executeTests.sh
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
 
 build:
@@ -39,7 +40,7 @@ force:
   stage: run
   script:
     - ./executeTests.sh -f
-    
+
 verbose:
   tags:
     - dind
@@ -53,4 +54,3 @@ forceVerbose:
   stage: run
   script:
     - ./executeTests.sh -fv
-

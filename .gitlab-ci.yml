@@ -14,8 +14,6 @@ before_script:
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
 
 build:
-  #only:
-  #  - tags
   tags:
     - dind
   stage: build
@@ -33,3 +31,26 @@ unit-tests:
   stage: run
   script:
     - docker run --rm ${CI_REGISTRY_IMAGE}:${CI_BUILD_REF_NAME}
+
+#test script modi
+force:
+  tags:
+    - dind
+  stage: run
+  script:
+    - bash executeTests.sh -f
+    
+verbose:
+  tags:
+    - dind
+  stage: run
+  script:
+    - bash executeTests.sh -v
+
+forceVerbose:
+  tags:
+    - dind
+  stage: run
+  script:
+    - bash executeTests.sh -fv
+

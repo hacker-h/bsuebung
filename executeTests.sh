@@ -9,7 +9,7 @@ For performance optimization the precompiled *.o files are passed into the conta
 There will be only few output by default.
 options:
     -f          force. Rebuild the docker image freshly without caching, takes plenty of time
-    -h          help. Display this help message and exit
+    -h          help. Display this help message and exit with errorcode
     -v          verbose. Print lots debugging output
 recognized arguments:
 EOF
@@ -32,18 +32,18 @@ suppressOutput="2>&1 | /dev/null"
 quiet="-q"
 
 #check if docker is installed
-which docker 2>&1 | /dev/null
+which docker > /dev/null 2> /dev/null
 if [ ${?} -ne 0 ]
 then
     echo "Docker is not installed, aborting.." >&2
-    exit
+    exit 1
 fi
 #check if docker is ready to use
-docker ps 2>&1 | /dev/null
+docker ps > /dev/null 2> /dev/null
 if [ ${?} -ne 0 ]
 then
     echo "Docker is not running, aborting.." >&2
-    exit
+    exit 1
 fi
 
 #remove dead container if it exists silently

@@ -3,7 +3,7 @@ Dieses Repository ist eine Erweiterung der Betriebssysteme Übung um eine Docker
 Die folgenden Beschreibungen von Docker lassen bewusst vieles aus und sind weitestgehend auf das Labor maßgeschneidert.
 Docker ist sehr vielfältig; ein typisches Docker Training durch einen Experten nimmt zwei volle Tage in Anspruch.
 
-###Was ist Docker?
+### Was ist Docker?
 Docker ist eine Software zur Realisierung von Containervirtualisierung. Container sind im Grunde sehr leichtgewichtige VMs. Docker Images enthalten lauffähige Applikationen mit allen notwendigen Abhängigkeiten.
 Für die Entwicklung empfiehlt es sich einen Container zustandslos (stateless) zu halten, um einen deterministischen Zustand zu erreichen.
 

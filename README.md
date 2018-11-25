@@ -44,7 +44,7 @@ apt update && apt install docker.io
 
 #### MacOS
 ```
-brew install docker-toolbox
+brew cask install docker
 ```
 
 
@@ -64,7 +64,7 @@ Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrück
 ```
 cat /etc/*release
 ```
-#### Warum die Docker-Toolbox und nicht einfach Docker?
+#### Warum sollte ich auf Windows die Docker-Toolbox und nicht einfach Docker for Windows installieren?
 ##### kurze Erklärung:
 Auf Windows können Sie nach der Installation von Docker (Docker for Windows) keine typischen virtuellen Maschinen mehr starten (VMware/Virtualbox/...).
 

@@ -60,7 +60,7 @@ Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrück
 
 
 ### FAQ
-####Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?
+#### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?
 ```
 cat /etc/*release
 ```

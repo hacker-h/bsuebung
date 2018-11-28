@@ -60,7 +60,12 @@ Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrück
 
 
 ### Debugger für einen Docker Container benutzen
-
+Das Debuggen des Containers zur Laufzeit ist mittels Remote Debugging möglich.
+Hierzu benötigen Sie einen offenen TCP Port zum Container, z.B. 5005.
+Ports vom Container können sie gegenüber dem Host öffnen, indem Sie beim Starten mittels 'docker run' je ein p Flag angeben.
+Beachten Sie, dass sie die Ports des Containers auf Ports des Hosts mappen müssen.
+Beispiel: 'docker run -d -p 443:80 nginx'
+startet einen Docker Container mit nginx im Hintergrund (-d) und gibt den im Container genutzten Port 80 auf dem Host als Port 443 frei.
 
 ### FAQ
 #### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?

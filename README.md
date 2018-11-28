@@ -59,6 +59,9 @@ Dieses baut beim Ausführen das Docker Image und startet es.
 Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrückt, sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
 
 
+### Debugger für einen Docker Container benutzen
+
+
 ### FAQ
 #### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?
 ```

@@ -66,6 +66,12 @@ Ports vom Container können sie gegenüber dem Host öffnen, indem Sie beim Star
 Beachten Sie, dass sie die Ports des Containers auf Ports des Hosts mappen müssen.
 Beispiel: 'docker run -d -p 443:80 nginx'
 startet einen Docker Container mit nginx im Hintergrund (-d) und gibt den im Container genutzten Port 80 auf dem Host als Port 443 frei.
+Die Konfiguration des Remote Debuggings ist IDE und Debugger spezifisch.
+Einige exemplarische Anleitungen finden Sie hier:
+IntelliJ:
+https://medium.com/beyond/running-a-play-app-with-docker-locally-and-debugging-with-intellij-idea-746eaf1732da
+Eclipse:
+https://sdqweb.ipd.kit.edu/wiki/Remote_Debugging_mit_Eclipse
 
 ### FAQ
 #### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?

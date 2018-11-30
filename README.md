@@ -93,6 +93,17 @@ Sie können jedoch theoretisch auch VMs über den Hyper-V managen lassen. Für d
 Die Docker-Toolbox stellt die zwei Komponenten von Docker bereit: Docker Daemon und Docker CLI.
 Die CLI ist die bloße Kommandozeilenanwendung, der Docker Daemon ist die Kernkomponente von Docker, die auf dem Linuxkernel aufsetzt. Docker-Toolbox startet hierfür eine virtuelle Maschine mit Virtualbox, auf der der Docker Daemon läuft.
 
+#### could not read CA certificate "C:\\Users\\Hacker\\.docker\\machine\\machines\\default\\ca.pem": open C:\Users\Hacker\.docker\machine\machines\default\ca.pem: Das System kann den angegebenen Pfad nicht finden.
+Die Docker-Toolbox setzt Umgebungsvariablen, die die Ausführung anderer Docker Varianten beeinträchtigen.
+Mit folgenden Powershell Befehlen können Sie die störenden Umgebungsvariablen löschen:
+```
+[Environment]::SetEnvironmentVariable("DOCKER_CERT_PATH", $null, "User")
+[Environment]::SetEnvironmentVariable("DOCKER_HOST", $null, "User")
+[Environment]::SetEnvironmentVariable("DOCKER_MACHINE_NAME", $null, "User")
+[Environment]::SetEnvironmentVariable("DOCKER_TLS_VERIFY", $null, "User")
+[Environment]::SetEnvironmentVariable("DOCKER_TOOLBOX_INSTALL_PATH", $null, "User")
+```
+
 #### Ich möchte Docker auf Windows7 oder älter installieren
 Dies wird offiziell nicht unterstützt, ist aber prinzipiell mit Chocolatey möglich.
 Bezüglich der Konfiguration, um Docker nutzbar zu machen, sollten Sie sich allerdings auf ein Abenteuer gefasst machen.

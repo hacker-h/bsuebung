@@ -6,6 +6,8 @@ Docker ist sehr vielfältig; ein typisches Docker Training durch einen Experten 
 ### Was ist Docker?
 Docker ist eine Software zur Realisierung von Containervirtualisierung. Container sind im Grunde sehr leichtgewichtige VMs. Docker Images enthalten lauffähige Applikationen mit allen notwendigen Abhängigkeiten.
 Für die Entwicklung empfiehlt es sich einen Container zustandslos (stateless) zu halten, um einen deterministischen Zustand zu erreichen.
+Docker Container haben verschiedene sog. Lifecylce Zustände. Genaueres können Sie hier lesen:
+https://medium.com/@nagarwal/lifecycle-of-docker-container-d2da9f85959
 
 ### Was ist ein Docker Image?
 Ein Docker Image ist eine Art Snapshot eines zu startenden Containers, der auf jedem Host gestartet werden kann, auf dem Docker installiert ist.
@@ -47,17 +49,14 @@ apt update && apt install docker.io
 brew cask install docker
 ```
 
-
 #### Manuell
 Laden Sie den passenden Installer herunter und installieren Sie die Docker Toolbox:
 https://docs.docker.com/toolbox/overview/#whats-in-the-box
-
 
 ### Quickstart
 Es steht ein kleines Shell Script bereit (executeTests.sh).
 Dieses baut beim Ausführen das Docker Image und startet es.
 Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrückt, sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
-
 
 ### Debugger für einen Docker Container benutzen
 Das Debuggen des Containers zur Laufzeit ist mittels Remote Debugging möglich.

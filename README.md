@@ -74,6 +74,16 @@ Eclipse:
 https://sdqweb.ipd.kit.edu/wiki/Remote_Debugging_mit_Eclipse
 
 ### FAQ
+#### Wie komme ich mit dem Terminal in den Docker Container (z.B. für manuelles Testen)?
+Interaktives Starten eines neuen Containers:
+```
+docker run --rm -it test-image sh
+```
+Interaktiv Verbinden auf einen laufenden Container:
+```
+docker exec -it test-container sh
+```
+
 #### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?
 ```
 cat /etc/*release

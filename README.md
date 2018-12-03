@@ -84,6 +84,22 @@ Interaktiv Verbinden auf einen laufenden Container:
 docker exec -it test-container sh
 ```
 
+#### Wie kopiere ich Dateien zwischen Docker Container und Host?
+Quell- und Zielpfad sind im folgenden absolut angegeben.
+Der Pfad des Hosts könnte auch relativ angegeben werden.
+Ähnlich wie beim normalen cp Befehl können Sie hinter dem Zielpfad einen anderen Namen,
+als den der Quelldatei wählen, um die Kopie umzubennen.
+
+Host --> Container
+```
+docker cp /tmp/example.txt mycontainer:/root/example.txt
+```
+
+Container --> Host
+```
+docker cp mycontainer:/root/example.txt /tmp/example.txt
+```
+
 #### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?
 ```
 cat /etc/*release

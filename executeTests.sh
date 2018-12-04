@@ -28,7 +28,7 @@ fi
 forceFlag=0
 verboseFlag=0
 volume="-v obj:/MyFS/obj "
-suppressOutput="2>&1 | /dev/null"
+suppressOutput="> /dev/null 2>&1"
 quiet="-q"
 
 #check if docker is installed

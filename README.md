@@ -8,10 +8,14 @@ Docker ist eine Software zur Realisierung von Containervirtualisierung. Containe
 Für die Entwicklung empfiehlt es sich einen Container zustandslos (stateless) zu halten, um einen deterministischen Zustand zu erreichen.
 Docker Container haben verschiedene sog. Lifecylce Zustände. Genaueres können Sie hier lesen:
 https://medium.com/@nagarwal/lifecycle-of-docker-container-d2da9f85959
+Beim Starten erhält jeder Container eine eindeutige zufällige HEX id z.B. 0ff43e33f9d8.
+Da dies recht unhandlich ist können Sie beim Start eines Containers (docker run) einen Namen setzen z.B. '--name myCon'.
+In nahezu allen Docker Befehlen, die eine Container id erwarten können Sie stattdessen den gesetzten Namen des Containers angeben.
 
 ### Was ist ein Docker Image?
 Ein Docker Image ist eine Art Snapshot eines zu startenden Containers, der auf jedem Host gestartet werden kann, auf dem Docker installiert ist.
 Das Image liegt in Form von einer Datei vor und kann mit einem einfachen 'docker run' Befehl innerhalb weniger Sekunden gestartet werden.
+So wie sie für Docker Container Namen vergeben können, können sie ein Docker Image mit einem oder mehreren Tags versehen (docker tag).
 
 ### Was tut das Dockerfile?
 Die sauberste Möglichkeit, um ein eigenes Docker Image zu erstellen ist das Dockerfile. Ein Dockerfile beschreibt die zur Bereitstellung eines Containers notwendigen Schritte in Form von Code; es ist ein Bauplan für das Docker Image.
@@ -133,3 +137,10 @@ Mit folgenden Powershell Befehlen können Sie die störenden Umgebungsvariablen 
 #### Ich möchte Docker auf Windows7 oder älter installieren
 Dies wird offiziell nicht unterstützt, ist aber prinzipiell mit Chocolatey möglich.
 Bezüglich der Konfiguration, um Docker nutzbar zu machen, sollten Sie sich allerdings auf ein Abenteuer gefasst machen.
+
+#### Wie räume ich den durch Docker Container und Images belegten Speicher wieder frei?
+Mit dem Befehl 'docker rm' können Sie einen spezifischen Container löschen, sofern dieser nicht mehr läuft.
+Stoppen können Sie den Container mit 'docker stop'.
+Mit dem Befehl 'docker rmi' können Sie ein spezifisches Docker Image löschen, sofern dieses nicht von einem bestehenden Container verwendet wird.
+
+Eine bequeme Möglichkeit um viele Container und Images auf einmal zu löschen ist der Befehl 'docker system prune'.

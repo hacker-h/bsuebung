@@ -27,14 +27,27 @@ Beim Start des Containers wird standardmäßig das Projekt über ein Makefile ge
 ### Wie installiere ich Docker?
 Achten Sie darauf die Community Edition von Docker zu installieren, nicht die Enterprise Edition!
 
+
 #### Windows 10
+
+Wenn Sie definitiv wissen, dass Sie keine virtuellen Maschinen(VMware/Virtualbox) zusätzlich benötigen,
+sollten Sie direkt docker-for-windows anstelle der Docker-Toolbox installieren.
+Vorteile sind hohe Performance und keinerlei Kapriolen bezüglich der bei der Docker-Toolbox zugrunde liegenden Virtualbox VM.
+
 Öffnen Sie die Powershell mit Administratorrechten.
-Mit folgenden Befehlen installieren Sie Chocolatey (Windows Paket Manager) und anschließend das docker-toolbox Chocolatey Paket.
+Mit folgenden Befehlen installieren Sie Chocolatey (Windows Paket Manager) und anschließend das docker-toolbox (bzw. docker-for-windows) Chocolatey Paket.
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
+```
+Docker-Toolbox:
+```
 choco install docker-toolbox
 ```
+Docker for Windows:
+```
+choco install docker-for-windows
+```
+
 #### Linux
 Auf https://get.docker.com/ findet sich ein generisches Shell Script mit dem sich Docker auf einem beliebigen Linux installieren lässt.
 Mit folgenden Befehlen laden Sie das Script herunter und führen es aus.

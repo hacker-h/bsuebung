@@ -52,6 +52,7 @@ brew cask install docker
 #### Manuell
 Laden Sie den passenden Installer herunter und installieren Sie die Docker Toolbox:
 https://docs.docker.com/toolbox/overview/#whats-in-the-box
+Starten Sie anschließend das soeben mitinstallierte Docker Quickstart Terminal.
 
 ### Quickstart
 Es steht ein kleines Shell Script bereit (executeTests.sh).
@@ -112,7 +113,7 @@ Docker setzt auf dem Linux Kernel auf.
 Linux und MacOS bauen ebenfalls darauf auf, somit ist dessen Nutzung durch Docker kein Problem.
 Auf Windows steht kein Linux Kernel zur Verfügung, daher muss eine Virtualisierungslösung hier Abhilfe schaffen.
 Virtuelle Maschinen nutzen auf unterster Ebene die über einen Hypervisor bereitgestellten Ressourcen des Hosts, auf dem sie laufen. Für Windows existiert die Software Docker for Windows. Diese nutzt einen eigenen Hypervisor (Hyper-V), der die Ressourcen des Hosts belegt und damit für andere Hypervisors (Virtualbox/VMware) unbenutzbar macht.
-Sie können jedoch theoretisch auch VMs über den Hyper-V managen lassen. Für die meisten Use Cases reicht aber das Linux Subsystem von Windows 10 aus. Falls Sie allerdings auf bestehende virtuelle Maschinen angewiesen sind, empfiehlt es sich anstelle von Docker die Docker-Toolbox zu installieren.
+Sie können jedoch theoretisch auch VMs über den Hyper-V managen lassen. Für die meisten Linux-typischen Use Cases reicht aber bereits das Linux Subsystem von Windows 10 aus. Falls Sie allerdings auf bestehende virtuelle Maschinen (Virtualbox/VMware) angewiesen sind, empfiehlt es sich anstelle von Docker die Docker-Toolbox zu installieren.
 
 #### Wie funktioniert die Docker-Toolbox?
 Die Docker-Toolbox stellt die zwei Komponenten von Docker bereit: Docker Daemon und Docker CLI.

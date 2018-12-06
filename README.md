@@ -69,12 +69,25 @@ brew cask install docker
 #### Manuell
 Laden Sie den passenden Installer herunter und installieren Sie die Docker Toolbox:
 https://docs.docker.com/toolbox/overview/#whats-in-the-box
-Starten Sie anschließend das soeben mitinstallierte Docker Quickstart Terminal.
+Starten Sie anschließend das soeben mitinstallierte "Docker Quickstart Terminal".
 
 ### Quickstart
 Es steht ein kleines Shell Script bereit (executeTests.sh).
 Dieses baut beim Ausführen das Docker Image und startet es.
-Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrückt, sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
+Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrückt,
+sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
+Wenn Sie die Ausgaben sehen möchten, starten Sie das Script mit dem -v Flag:
+sh executeTests.sh -v
+
+#Layer im Dockerfile
+Docker baut aus jedem Befehl im Dockerfile (FROM, RUN, COPY, ...) je ein Layer, d.h. ein Zwischen-Image.
+Diese Layer werden nacheinander übereinander geschichtet und bilden das finale Image.
+Beim erneuten Bauen des unveränderten Dockerfiles können sämtliche unveränderten Layer gecachet werden.
+Das erste Bauen dauert somit am längsten, danach geht es sehr schnell.
+Wird ein Befehl im Dockerfile jedoch verändert, so muss dieser Layer sowie alle Layer (Befehle) darunter neu gebaut werden.
+Es empfiehlt sich daher statische bzw. selten veränderte Befehle möglichst weit nach oben im Dockerfile zu verschieben.
+
+
 
 ### Debugger für einen Docker Container benutzen
 Das Debuggen des Containers zur Laufzeit ist mittels Remote Debugging möglich.

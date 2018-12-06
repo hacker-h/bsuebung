@@ -3,6 +3,9 @@ Dieses Repository ist eine Erweiterung der Betriebssysteme Übung um eine Docker
 Die folgenden Beschreibungen von Docker lassen bewusst vieles aus und sind weitestgehend auf das Labor maßgeschneidert.
 Docker ist sehr vielfältig; ein typisches Docker Training durch einen Experten nimmt zwei volle Tage in Anspruch.
 
+Der Installer von Docker ist ca. 500MB groß.
+Die benötigten Images/Pakete des gebauten Docker Images benötigen weitere 100MB.
+
 ### Was ist Docker?
 Docker ist eine Software zur Realisierung von Containervirtualisierung. Container sind im Grunde sehr leichtgewichtige VMs. Docker Images enthalten lauffähige Applikationen mit allen notwendigen Abhängigkeiten.
 Für die Entwicklung empfiehlt es sich einen Container zustandslos (stateless) zu halten, um einen deterministischen Zustand zu erreichen.
@@ -86,8 +89,6 @@ Beim erneuten Bauen des unveränderten Dockerfiles können sämtliche unverände
 Das erste Bauen dauert somit am längsten, danach geht es sehr schnell.
 Wird ein Befehl im Dockerfile jedoch verändert, so muss dieser Layer sowie alle Layer (Befehle) darunter neu gebaut werden.
 Es empfiehlt sich daher statische bzw. selten veränderte Befehle möglichst weit nach oben im Dockerfile zu verschieben.
-
-
 
 ### Debugger für einen Docker Container benutzen
 Das Debuggen des Containers zur Laufzeit ist mittels Remote Debugging möglich.

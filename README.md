@@ -30,7 +30,6 @@ Beim Start des Containers wird standardmäßig das Projekt über ein Makefile ge
 ### Wie installiere ich Docker?
 Achten Sie darauf die Community Edition von Docker zu installieren, nicht die Enterprise Edition!
 
-
 #### Windows 10
 
 Wenn Sie definitiv wissen, dass Sie keine virtuellen Maschinen(VMware/Virtualbox) zusätzlich benötigen,
@@ -42,6 +41,9 @@ Mit folgenden Befehlen installieren Sie Chocolatey (Windows Paket Manager) und a
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
+
+Installieren Sie nur EINES von beiden Paketen, diese stören sich nämlich gegenseitig:
+
 Docker-Toolbox:
 ```
 choco install docker-toolbox
@@ -83,6 +85,8 @@ Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrück
 sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
 Wenn Sie die Ausgaben sehen möchten, starten Sie das Script mit dem -v Flag:
 sh executeTests.sh -v
+
+Für weitere Informationen führen Sie das Script mit dem Help Flag (-h) aus oder schauen Sie hinein.
 
 #Layer im Dockerfile
 Docker baut aus jedem Befehl im Dockerfile (FROM, RUN, COPY, ...) je ein Layer, d.h. ein Zwischen-Image.
@@ -154,6 +158,28 @@ Sie können jedoch theoretisch auch VMs über den Hyper-V managen lassen. Für d
 Die Docker-Toolbox stellt die zwei Komponenten von Docker bereit: Docker Daemon und Docker CLI.
 Die CLI ist die bloße Kommandozeilenanwendung, der Docker Daemon ist die Kernkomponente von Docker, die auf dem Linuxkernel aufsetzt. Docker-Toolbox startet hierfür eine virtuelle Maschine mit Virtualbox, auf der der Docker Daemon läuft.
 Beachten Sie, dass Docker Container innerhalb der Virtualbox VM keine Ports auf localhost mappen können. Standardmäßig hat diese VM die IP 192.168.99.100
+
+#### Was ist Chocolatey?
+Chocolatey ist ein ThirdParty Paketmanager für Windows. Er wird seit 2015 offiziell durch die Windows Powershell Package Management Funktionen unterstützt.
+Diese Integrationen sind jedoch recht unhandlich und unintuitiv, sodass sich die direkte Verwendung des choco Commands empfiehlt.
+Beachten Sie, dass Chocolatey nur Pakete "tracken" kann, die mit Chocolatey installiert (und ggf auch wieder deinstalliert) wurden.
+Die Community Version von Chocolatey ist auf die Installation in die vom jeweiligen Paket festgelegten Standardverzeichnisse beschränkt.
+
+Die wichtigsten Chocolatey Befehle:
+Alle mit Chocolatey installierten Pakete anzeigen:
+```
+choco list -la
+```
+Installiere ein Paket ohne Rückfragen (Beispiel Firefox)
+```
+choco install firefox -y
+```
+Deinstalliere ein Paket mit Rückfragen (Beispiel Firefox)
+```
+choco uninstall firefox
+```
+
+
 
 #### could not read CA certificate "C:\\Users\\Hacker\\.docker\\machine\\machines\\default\\ca.pem": open C:\Users\Hacker\.docker\machine\machines\default\ca.pem: Das System kann den angegebenen Pfad nicht finden.
 Die Docker-Toolbox setzt Umgebungsvariablen, die die Ausführung anderer Docker Varianten beeinträchtigen.

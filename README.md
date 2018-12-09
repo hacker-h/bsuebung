@@ -178,8 +178,10 @@ Deinstalliere ein Paket mit Rückfragen (Beispiel Firefox)
 ```
 choco uninstall firefox
 ```
-
-
+Aktualisiere alle installierten Pakete ohne Rückfragen
+```
+choco upgrade all -y
+```
 
 #### could not read CA certificate "C:\\Users\\Hacker\\.docker\\machine\\machines\\default\\ca.pem": open C:\Users\Hacker\.docker\machine\machines\default\ca.pem: Das System kann den angegebenen Pfad nicht finden.
 Die Docker-Toolbox setzt Umgebungsvariablen, die die Ausführung anderer Docker Varianten beeinträchtigen.

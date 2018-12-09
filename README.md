@@ -161,13 +161,13 @@ Mit folgenden Powershell Befehlen können Sie die störenden Umgebungsvariablen 
 [Environment]::SetEnvironmentVariable("DOCKER_TOOLBOX_INSTALL_PATH", $null, "User")
 ```
 
-#### Ich möchte Docker auf Windows7 oder älter installieren
-Dies wird offiziell nicht unterstützt, ist aber prinzipiell mit Chocolatey möglich.
-Bezüglich der Konfiguration, um Docker nutzbar zu machen, sollten Sie sich allerdings auf ein Abenteuer gefasst machen.
-
 #### Wie räume ich den durch Docker Container und Images belegten Speicher wieder frei?
 Mit dem Befehl 'docker rm' können Sie einen spezifischen Container löschen, sofern dieser nicht mehr läuft.
 Stoppen können Sie den Container mit 'docker stop'.
 Mit dem Befehl 'docker rmi' können Sie ein spezifisches Docker Image löschen, sofern dieses nicht von einem bestehenden Container verwendet wird.
 
 Eine bequeme Möglichkeit um viele Container und Images auf einmal zu löschen ist der Befehl 'docker system prune'.
+
+#### Ich möchte Docker auf Windows7 oder älter installieren
+Dies wird offiziell nicht unterstützt, ist aber prinzipiell mit Chocolatey möglich.
+Bezüglich der Konfiguration, um Docker nutzbar zu machen, sollten Sie sich allerdings auf ein Abenteuer gefasst machen.

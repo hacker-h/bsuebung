@@ -124,6 +124,8 @@ als den der Quelldatei wählen, um die Kopie umzubennen.
 Host --> Container
 ```
 docker cp /tmp/example.txt mycontainer:/root/example.txt
+
+
 ```
 
 Container --> Host
@@ -149,6 +151,7 @@ Sie können jedoch theoretisch auch VMs über den Hyper-V managen lassen. Für d
 #### Wie funktioniert die Docker-Toolbox?
 Die Docker-Toolbox stellt die zwei Komponenten von Docker bereit: Docker Daemon und Docker CLI.
 Die CLI ist die bloße Kommandozeilenanwendung, der Docker Daemon ist die Kernkomponente von Docker, die auf dem Linuxkernel aufsetzt. Docker-Toolbox startet hierfür eine virtuelle Maschine mit Virtualbox, auf der der Docker Daemon läuft.
+Beachten Sie, dass Docker Container innerhalb der Virtualbox VM keine Ports auf localhost mappen können. Standardmäßig hat diese VM die IP 192.168.99.100
 
 #### could not read CA certificate "C:\\Users\\Hacker\\.docker\\machine\\machines\\default\\ca.pem": open C:\Users\Hacker\.docker\machine\machines\default\ca.pem: Das System kann den angegebenen Pfad nicht finden.
 Die Docker-Toolbox setzt Umgebungsvariablen, die die Ausführung anderer Docker Varianten beeinträchtigen.

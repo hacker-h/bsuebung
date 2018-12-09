@@ -77,6 +77,8 @@ Starten Sie anschließend das soeben mitinstallierte "Docker Quickstart Terminal
 ### Quickstart
 Es steht ein kleines Shell Script bereit (executeTests.sh).
 Dieses baut beim Ausführen das Docker Image und startet es.
+Beachten Sie, dass das Script aus seinem Quellverzeichnis (also diesem Repository) heraus ausgeführt werden muss,
+da es relative Pfadangaben enthält.
 Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrückt,
 sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
 Wenn Sie die Ausgaben sehen möchten, starten Sie das Script mit dem -v Flag:

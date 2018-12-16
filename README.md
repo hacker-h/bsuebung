@@ -158,6 +158,9 @@ Sie können jedoch theoretisch auch VMs über den Hyper-V managen lassen. Für d
 Die Docker-Toolbox stellt die zwei Komponenten von Docker bereit: Docker Daemon und Docker CLI.
 Die CLI ist die bloße Kommandozeilenanwendung, der Docker Daemon ist die Kernkomponente von Docker, die auf dem Linuxkernel aufsetzt. Docker-Toolbox startet hierfür eine virtuelle Maschine mit Virtualbox, auf der der Docker Daemon läuft.
 Beachten Sie, dass Docker Container innerhalb der Virtualbox VM keine Ports auf localhost mappen können. Standardmäßig hat diese VM die IP 192.168.99.100
+Sie finden Ihre IP mit dem docker-machine inspect:
+docker-machine inspect -f '{{.Driver.IPAddress}}'
+Dies ist ebenfalls über die docker CLI selbst möglich: https://stackoverflow.com/questions/17157721/how-to-get-a-docker-containers-ip-address-from-the-host
 
 #### Was ist Chocolatey?
 Chocolatey ist ein ThirdParty Paketmanager für Windows. Er wird seit 2015 offiziell durch die Windows Powershell Package Management Funktionen unterstützt.

@@ -84,7 +84,9 @@ da es relative Pfadangaben enthält.
 Sämtliche Docker-spezifischen Ausgaben beim Bauen des Images werden unterdrückt,
 sodass lediglich die Ausgaben des Docker Containers angezeigt werden.
 Wenn Sie die Ausgaben sehen möchten, starten Sie das Script mit dem -v Flag:
+```
 sh executeTests.sh -v
+```
 
 Für weitere Informationen führen Sie das Script mit dem Help Flag (-h) aus oder schauen Sie hinein.
 
@@ -98,7 +100,7 @@ Es empfiehlt sich daher statische bzw. selten veränderte Befehle möglichst wei
 
 ### Debugger für einen Docker Container benutzen
 Das Debuggen des Containers zur Laufzeit ist mittels Remote Debugging möglich.
-Hierzu benötigen Sie einen offenen TCP Port zum Container, z.B. 5005.
+Hierzu benötigen Sie einen offenen TCP Port zum Docker Daemon, z.B. 5005.
 Ports vom Container können sie gegenüber dem Host öffnen, indem Sie beim Starten mittels 'docker run' je ein p Flag angeben.
 Beachten Sie, dass sie die Ports des Containers auf Ports des Hosts mappen müssen.
 Beispiel: 'docker run -d -p 443:80 nginx'
@@ -109,6 +111,19 @@ IntelliJ:
 https://medium.com/beyond/running-a-play-app-with-docker-locally-and-debugging-with-intellij-idea-746eaf1732da
 Eclipse:
 https://sdqweb.ipd.kit.edu/wiki/Remote_Debugging_mit_Eclipse
+
+### Volumes
+Volumes sind Verzeichnisse, die vom Host in einen Docker Container gemountet werden können..
+Dieses Feature wird im executeTests.sh Script zum Cachen der object Files zwecks Performance genutzt.
+Prinzipiell lässt sich ein Volume sehr einfach verwenden, z.B.
+```
+docker run -it -v mypath:containerpath alpine sh
+```
+Beachten Sie, dass die jeweiligen Pfadangaben je nach Host Windows- bzw. Linux-konform sein müssen.
+Beachten Sie weiterhin, dass die Docker-Toolbox unter Windows die eigentlich für Container flüchtigen Volumes in der Virtualbox Schicht persistiert.
+Im executeTests.sh Script finden Sie einen Workaround um die Dateien zuverlässig zu löschen.
+Weitere Infos finden Sie hier:
+https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c
 
 ### FAQ
 #### Wie komme ich mit dem Terminal in den Docker Container (z.B. für manuelles Testen)?
@@ -130,13 +145,16 @@ als den der Quelldatei wählen, um die Kopie umzubennen.
 Host --> Container
 ```
 docker cp /tmp/example.txt mycontainer:/root/example.txt
-
-
 ```
 
 Container --> Host
 ```
 docker cp mycontainer:/root/example.txt /tmp/example.txt
+```
+
+Beachten Sie, dass Sie z.B. unter einem Windows Host den Hostpfad als Windows-konformen Pfad angeben müssen.
+```
+docker cp mycontainer:/root C:/root
 ```
 
 #### Wie finde ich über das Terminal heraus welches Linux Betriebssystem ich habe?
@@ -159,7 +177,9 @@ Die Docker-Toolbox stellt die zwei Komponenten von Docker bereit: Docker Daemon 
 Die CLI ist die bloße Kommandozeilenanwendung, der Docker Daemon ist die Kernkomponente von Docker, die auf dem Linuxkernel aufsetzt. Docker-Toolbox startet hierfür eine virtuelle Maschine mit Virtualbox, auf der der Docker Daemon läuft.
 Beachten Sie, dass Docker Container innerhalb der Virtualbox VM keine Ports auf localhost mappen können. Standardmäßig hat diese VM die IP 192.168.99.100
 Sie finden Ihre IP mit dem docker-machine inspect:
+```
 docker-machine inspect -f '{{.Driver.IPAddress}}'
+```
 Dies ist ebenfalls über die docker CLI selbst möglich: https://stackoverflow.com/questions/17157721/how-to-get-a-docker-containers-ip-address-from-the-host
 
 #### Was ist Chocolatey?

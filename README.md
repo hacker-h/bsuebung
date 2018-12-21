@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/hacker-h/bsuebung-docker.svg?branch=master)](https://travis-ci.com/hacker-h/bsuebung-docker)
 ## MyFS
 Dieses Repository ist eine Erweiterung der Betriebssysteme Übung um eine Docker Umgebung.
 Die folgenden Beschreibungen von Docker lassen bewusst vieles aus und sind weitestgehend auf das Labor maßgeschneidert.

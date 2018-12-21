@@ -1,0 +1,7 @@
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - bash executeTests.sh -v

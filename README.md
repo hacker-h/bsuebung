@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/hacker-h/bsuebung-docker.svg?branch=master)](https://travis-ci.com/hacker-h/bsuebung-docker)
 ## MyFS
 Dieses Repository ist eine Erweiterung der Betriebssysteme Übung um eine Docker Umgebung.
 Die folgenden Beschreibungen von Docker lassen bewusst vieles aus und sind weitestgehend auf das Labor maßgeschneidert.
 Docker ist sehr vielfältig; ein typisches Docker Training durch einen Experten nimmt zwei volle Tage in Anspruch.
+[![Build Status](https://travis-ci.com/hacker-h/bsuebung-docker.svg?branch=master)](https://travis-ci.com/hacker-h/bsuebung-docker)
 
 Der Installer von Docker ist ca. 500MB groß.
 Die benötigten Images/Pakete des gebauten Docker Images benötigen weitere 100MB.

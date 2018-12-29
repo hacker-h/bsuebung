@@ -1,4 +1,4 @@
-#/bin/sh
+#/bin/bash
 
 # Usage info
 show_help() {
@@ -47,10 +47,10 @@ then
 fi
 
 #remove dead container if it exists silently
-log "docker stop test-container"
-eval "docker stop test-container ${suppressOutput}"
-log "docker rm test-container ${suppressOutput}"
-eval "docker rm test-container ${suppressOutput}"
+log "docker stop myfs-container"
+eval "docker stop myfs-container ${suppressOutput}"
+log "docker rm myfs-container ${suppressOutput}"
+eval "docker rm myfs-container ${suppressOutput}"
 
 while getopts fhv opt; do #watch for arguments f, h and v
     case ${opt} in
@@ -74,8 +74,8 @@ while getopts fhv opt; do #watch for arguments f, h and v
 done
 
 #build the image silently
-log "docker build -t test-image ${PWD}"
-eval "docker build ${quiet} -t test-image . ${suppressOutput}"
+log "docker build -t myfs ${PWD}"
+eval "docker build ${quiet} -t myfs . ${suppressOutput}"
 
 if [ ${forceFlag} -eq 1 ]
 then
@@ -83,8 +83,8 @@ then
     log "docker rm cleaner"
     eval "docker rm cleaner ${suppressOutput}"
     #clear all legacy files independently of the os's docker abstraction solution
-    log "docker run --name cleaner -v obj:/MyFS/obj test-image rm -rf obj && ls -lah obj"
-    eval "docker run --name cleaner -v obj:/MyFS/obj test-image rm -rf obj ${suppressOutput} && ls -lah obj ${suppressOutput}"
+    log "docker run --name cleaner -v obj:/MyFS/obj myfs rm -rf obj && ls -lah obj"
+    eval "docker run --name cleaner -v obj:/MyFS/obj myfs rm -rf obj ${suppressOutput} && ls -lah obj ${suppressOutput}"
     #tidy up legacy cleaning container
     log "docker rm cleaner"
     eval "docker rm cleaner ${suppressOutput}"
@@ -93,9 +93,9 @@ fi
 #run the container
 #using the 'obj' dir as volume enables the caching of linking objects to save compile time
 #when using docker toolbox the volume 'obj' is located on the disk of the virtual machine (linux) hosting the docker environment and will persist forever by default
-log "docker run --name test-container ${volume} test-image"
-docker run --name test-container ${volume} test-image
+log "docker run --name myfs-container ${volume} myfs"
+docker run --name myfs-container ${volume} myfs
 
 #remove the dead container silently
-log "docker rm test-container ${suppressOutput}"
-eval "docker rm test-container ${suppressOutput}"
+log "docker rm myfs-container ${suppressOutput}"
+eval "docker rm myfs-container ${suppressOutput}"

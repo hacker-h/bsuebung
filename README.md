@@ -56,6 +56,11 @@ Docker for Windows:
 choco install docker-for-windows
 ```
 
+Git Bash für die Ausführung der Beispielscripte:
+```
+choco install git
+```
+
 #### Linux
 Auf https://get.docker.com/ findet sich ein generisches Shell Script mit dem sich Docker auf einem beliebigen Linux installieren lässt.
 Mit folgenden Befehlen laden Sie das Script herunter und führen es aus.
@@ -116,17 +121,14 @@ Eclipse:
 https://sdqweb.ipd.kit.edu/wiki/Remote_Debugging_mit_Eclipse
 
 ### Volumes
-Volumes sind Verzeichnisse, die vom Host in einen Docker Container gemountet werden können..
+Volumes sind vereinfacht Verzeichnisse, die in einen Docker Container gemountet werden können.
 Dieses Feature wird im executeTests.sh Script zum Cachen der object Files zwecks Performance genutzt.
-Prinzipiell lässt sich ein Volume sehr einfach verwenden, z.B.
-```
-docker run -it -v mypath:containerpath alpine sh
-```
-Beachten Sie, dass die jeweiligen Pfadangaben je nach Host Windows- bzw. Linux-konform sein müssen.
-Beachten Sie weiterhin, dass die Docker-Toolbox unter Windows die eigentlich für Container flüchtigen Volumes in der Virtualbox Schicht persistiert.
-Im executeTests.sh Script finden Sie einen Workaround um die Dateien zuverlässig zu löschen.
-Weitere Infos finden Sie hier:
+Im Beispielscript wird jedoch ein Docker Volume verwendet, d.h. das Volume wird von Docker verwaltet und liegt "irgendwo" auf der Platte.
+Für uns interessant ist die Verwendung eines Host Directory Mounts, d.h. das mounten eines Verzeichnises vom Host in den Container (shared directory).
+Sie finden die notwendigen Befehle für einen solchen Mount im runSSHDaemon.sh Beispielscript.
+Weitere Infos zu Volumes unter Windows finden Sie hier:
 https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c
+https://github.com/moby/moby/issues/24029
 
 ### FAQ
 #### Wie komme ich mit dem Terminal in den Docker Container (z.B. für manuelles Testen)?

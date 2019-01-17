@@ -7,5 +7,5 @@ jobs:
       - bash executeTests.sh -v
     - stage: adapt and run ssh daemon script
       script:
-      - sed -i /s/make/make;exit/g runSSHDaemon.sh
+      - sed -i 's/make/make;exit/g' runSSHDaemon.sh
       - bash runSSHDaemon.sh

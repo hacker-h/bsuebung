@@ -7,5 +7,6 @@ jobs:
       - bash executeTests.sh -v
     - stage: adapt and run ssh daemon script
       script:
+      - sed -i 's/SSH_PORT=22/SSH_PORT=50022/g' runSSHDaemon.sh
       - sed -i 's/make/make;exit/g' runSSHDaemon.sh
       - bash runSSHDaemon.sh

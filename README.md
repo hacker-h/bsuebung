@@ -124,8 +124,8 @@ https://sdqweb.ipd.kit.edu/wiki/Remote_Debugging_mit_Eclipse
 Volumes sind vereinfacht Verzeichnisse, die in einen Docker Container gemountet werden können.
 Dieses Feature wird im executeTests.sh Script zum Cachen der object Files zwecks Performance genutzt.
 Im Beispielscript wird jedoch ein Docker Volume verwendet, d.h. das Volume wird von Docker verwaltet und liegt "irgendwo" auf der Platte.
-Für uns interessant ist die Verwendung eines Host Directory Mounts, d.h. das mounten eines Verzeichnises vom Host in den Container (shared directory).
-Sie finden die notwendigen Befehle für einen solchen Mount im runSSHDaemon.sh Beispielscript.
+Für uns interessant ist die Verwendung eines Host Directory Mounts, d.h. das Mounten eines Verzeichnises vom Host in den laufenden Container (vgl. shared directory bei virtuellen Maschinen).
+Sie finden die notwendigen Befehle sowie ein paar Variablen für die erleichterte Verwendung eines solchen Mounts im runSSHDaemon.sh Beispielscript.
 Weitere Infos zu Volumes unter Windows finden Sie hier:
 https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c
 https://github.com/moby/moby/issues/24029

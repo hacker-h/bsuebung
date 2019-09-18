@@ -8,7 +8,7 @@ RUN apt-get update &&\
                     libfuse2=2.9.4-1ubuntu3.1 \
                     make=4.1-6 \
                     pkg-config=0.29.1-0ubuntu1 \
-                    openssh-server=1:7.2p2-4ubuntu2.6 \
+                    openssh-server \
                     -y &&\
     mkdir /var/run/sshd &&\
     echo 'root:root' |chpasswd &&\
